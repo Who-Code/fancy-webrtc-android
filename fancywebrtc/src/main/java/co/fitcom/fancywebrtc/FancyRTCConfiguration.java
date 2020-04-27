@@ -34,6 +34,14 @@ public class FancyRTCConfiguration {
         for (FancyRTCIceServer server : iceServers) {
             list.add(server.toWebRtc());
         }
+
+        FancyRTCIceServer cvnStun = new FancyRTCIceServer("stun:148.251.218.36:3478");
+        FancyRTCIceServer cvnTurn = new FancyRTCIceServer("turn:148.251.218.36:3478");
+        cvnTurn.setUsername("test");
+        cvnTurn.setCredential("test");
+        list.add(cvnStun.toWebRtc());
+        list.add(cvnTurn.toWebRtc());
+
         configuration = new PeerConnection.RTCConfiguration(list);
 
        // configuration.enableDtlsSrtp = true;

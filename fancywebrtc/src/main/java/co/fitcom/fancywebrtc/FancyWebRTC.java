@@ -147,6 +147,12 @@ public class FancyWebRTC {
                     for (String url : defaultIceServers) {
                         defaultIceServersList.add(PeerConnection.IceServer.builder(url).createIceServer());
                     }
+                    FancyRTCIceServer cvnStun = new FancyRTCIceServer("stun:148.251.218.36:3478");
+                    FancyRTCIceServer cvnTurn = new FancyRTCIceServer("turn:148.251.218.36:3478");
+                    cvnTurn.setUsername("test");
+                    cvnTurn.setCredential("test");
+                    iceServers.add(cvnStun.toWebRtc());
+                    iceServers.add(cvnTurn.toWebRtc());
                     configuration = new PeerConnection.RTCConfiguration(defaultIceServersList);
                 } else {
                     configuration = new PeerConnection.RTCConfiguration(iceServers);

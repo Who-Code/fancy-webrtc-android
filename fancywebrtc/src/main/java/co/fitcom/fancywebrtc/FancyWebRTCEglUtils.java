@@ -10,7 +10,7 @@ public class FancyWebRTCEglUtils {
 
     public static EglBase getRootEglBase() {
         if (rootEglBase == null) {
-            rootEglBase = EglBase.create();
+            // rootEglBase = EglBase.create();
         }
         return rootEglBase;
     }
